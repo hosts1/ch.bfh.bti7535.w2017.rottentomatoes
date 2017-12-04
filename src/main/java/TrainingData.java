@@ -7,17 +7,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.nio.charset.StandardCharsets;
 
 public class TrainingData {
-    public List<String> pos = Collections.emptyList();
-    public List<String> neg = Collections.emptyList();
+    private List<String> pos = Collections.emptyList();
+    private List<String> neg = Collections.emptyList();
 
     public TrainingData(String path) {
         this.pos = getRawData(path + "//pos");
         this.neg = getRawData(path + "//neg");
     }
 
-    public List<String> getRawData(String path) {
+    private List<String> getRawData(String path) {
         try (Stream<Path> paths = Files.walk(Paths.get(path))) {
             return paths
                     .filter(Files::isRegularFile)
@@ -31,9 +32,18 @@ public class TrainingData {
 
     private String readTrainingFile(Path path)
     {
-        String fileName = path.getFileName().toString();
-        System.out.println(fileName);
-        // Todo: read training file
-        return new String(fileName);
+        try{
+            return Util.readFile(path.toString(),StandardCharsets.UTF_8);
+        }catch(IOException ex){
+            return "";
+        }
+    }
+
+    public List<String> getPositiveData(){
+        return this.pos;
+    }
+
+    public List<String> getNegativeData(){
+        return this.neg;
     }
 }
