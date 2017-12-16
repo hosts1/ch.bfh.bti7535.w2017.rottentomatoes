@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: ca.rmen:porter-stemmer:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26" level="project" />
@@ -34,6 +35,9 @@
     <orderEntry type="library" name="Maven: net.sourceforge.f2j:arpack_combined_all:0.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.netlib-java:netlib-java:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
-    <orderEntry type="library" name="Maven: ca.rmen:porter-stemmer:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analysis:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-snowball:2.4.0" level="project" />
   </component>
 </module>

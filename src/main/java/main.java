@@ -1,6 +1,7 @@
 // import weka.classifiers.bayes.NaiveBayes;
 
-import preprocessing.PreProcessor;
+import preprocessing.Pipeline;
+import preprocessing.Preprocessing;
 
 public class main {
 
@@ -8,9 +9,21 @@ public class main {
         ReviewData data = new ReviewData("txt_sentoken");
         //System.out.println(data.getPositiveData());
         //System.out.println(data.getNegativeData());
-        System.out.println(data.getPositiveData().get(0));
+        String firstReview = data.getPositiveData().get(0);
+        System.out.println(firstReview);
+        System.out.println();
 
-        System.out.println(PreProcessor.filterStopwords(data.getPositiveData().get(0)));
+
+        Pipeline<String, String> chain = Pipeline
+                .start(Preprocessing.lowercase)
+                .append(Preprocessing.stopwordFilter)
+                .append(Preprocessing.tokenizer)
+                .append(Preprocessing.stemmer);
+        String result = chain.run(firstReview);
+
+        System.out.println(result);
 
     }
+
+
 }

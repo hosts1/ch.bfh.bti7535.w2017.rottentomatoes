@@ -1,10 +1,13 @@
-import java.nio.charset.StandardCharsets;
+package preprocessing;
+
 import java.util.*;
 
-public class StopwordFilter {
-    public static String filter(String text){
+public class StopwordFilter implements Pipe<String, String> {
+    @Override
+    public String process(String text){
         try {
-            String stopwordsStr = Utils.readFile("stopwords.txt", StandardCharsets.UTF_8);
+            FileReader fr = new FileReader();
+            String stopwordsStr = fr.readFile("stopwords.txt");
             ArrayList<String> stopwords = new ArrayList<String>();
             StringTokenizer stok = new StringTokenizer(stopwordsStr, "\n");
             while (stok.hasMoreTokens()) {
