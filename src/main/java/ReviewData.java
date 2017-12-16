@@ -2,18 +2,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.nio.charset.StandardCharsets;
 
-public class TrainingData {
+public class ReviewData {
     private List<String> pos = Collections.emptyList();
     private List<String> neg = Collections.emptyList();
 
-    public TrainingData(String path) {
+    public ReviewData(String path) {
         this.pos = getRawData(path + "//pos");
         this.neg = getRawData(path + "//neg");
     }
@@ -33,7 +32,7 @@ public class TrainingData {
     private String readTrainingFile(Path path)
     {
         try{
-            return Util.readFile(path.toString(),StandardCharsets.UTF_8);
+            return Utils.readFile(path.toString(),StandardCharsets.UTF_8);
         }catch(IOException ex){
             return "";
         }

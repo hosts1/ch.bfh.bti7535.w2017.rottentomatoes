@@ -3,7 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.charset.Charset;
 
-public class Util {
+public class Utils {
     static String readFile(String path, Charset encoding)
             throws IOException
     {
