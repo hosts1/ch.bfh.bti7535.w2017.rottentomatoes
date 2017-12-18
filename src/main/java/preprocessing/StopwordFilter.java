@@ -1,5 +1,8 @@
 package preprocessing;
 
+import utils.FileReader;
+import utils.Pipe;
+
 import java.util.*;
 
 public class StopwordFilter implements Pipe<String, String> {

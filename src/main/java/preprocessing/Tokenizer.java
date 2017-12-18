@@ -1,9 +1,9 @@
 package preprocessing;
 
 import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.WhitespaceTokenizer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import utils.Pipe;
 
 import java.io.IOException;
 import java.io.StringReader;

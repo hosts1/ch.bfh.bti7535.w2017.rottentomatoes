@@ -1,27 +1,30 @@
 // import weka.classifiers.bayes.NaiveBayes;
 
-import preprocessing.Pipeline;
+import utils.Pipeline;
 import preprocessing.Preprocessing;
 
 public class main {
 
     public static void main(String[] args){
         ReviewData data = new ReviewData("txt_sentoken");
-        //System.out.println(data.getPositiveData());
-        //System.out.println(data.getNegativeData());
+        //data.getPositiveData() is a list of 500 positive reviews
+        //data.getNegativeData() is a list of 500 negative reviews
         String firstReview = data.getPositiveData().get(0);
         System.out.println(firstReview);
         System.out.println();
 
-
+        // preprocessing example
         Pipeline<String, String> chain = Pipeline
                 .start(Preprocessing.lowercase)
                 .append(Preprocessing.stopwordFilter)
                 .append(Preprocessing.tokenizer)
-                .append(Preprocessing.stemmer);
-        String result = chain.run(firstReview);
+                .append(Preprocessing.stemmer);;
+        System.out.println(chain.run(firstReview));
 
-        System.out.println(result);
+        // SentiWordNet example
+        System.out.println("good#a "+SentiWordNet.getInstance().extract("good", "a"));
+        System.out.println("bad#a "+SentiWordNet.getInstance().extract("bad", "a"));
+
 
     }
 
