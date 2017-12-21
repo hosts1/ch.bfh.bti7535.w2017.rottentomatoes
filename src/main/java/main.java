@@ -9,6 +9,8 @@ import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 
+import java.util.Random;
+
 public class main {
 
     public static void main(String[] args){
@@ -61,7 +63,9 @@ public class main {
 
             // Test the model
             Evaluation eTest = new Evaluation(trainingSet);
-            eTest.evaluateModel(cModel, trainingSet);
+            Random randomGenerator = new Random();
+
+            eTest.crossValidateModel(cModel, trainingSet, 10, randomGenerator);
 
             // print results
             String strSummary = eTest.toSummaryString();
