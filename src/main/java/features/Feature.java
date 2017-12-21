@@ -10,18 +10,18 @@ import java.util.function.Function;
 public abstract class Feature<T> {
    public Attribute attr;
    public String name;
-   private Function<String, T> detValue;        // this function will calculate the value of a feature
+   private Function<String, T> fxDetermine;        // this function will calculate the value of a feature
 
    public Feature(String name, Function<String, T> fx){
        this.name = name;
-       this.detValue = fx;
+       this.fxDetermine = fx;
    }
 
-    public void addToFeatureVector(ArrayList fvWekaAttributes){
-        fvWekaAttributes.add(this);
+    public void addToFeatureVector(ArrayList vec){
+        vec.add(this);
     }
 
     public T determineValue(String review){
-        return detValue.apply(review);
+        return fxDetermine.apply(review);
     }
 }

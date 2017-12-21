@@ -1,6 +1,6 @@
 package preprocessing;
 import org.tartarus.snowball.ext.PorterStemmer;
-import utils.Pipe;
+import pipeline.Pipe;
 
 import java.util.List;
 

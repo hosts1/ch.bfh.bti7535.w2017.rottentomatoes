@@ -1,6 +1,6 @@
 package preprocessing;
 
-import utils.Pipe;
+import pipeline.Pipe;
 
 public class Lowercase implements Pipe<String, String> {
     @Override

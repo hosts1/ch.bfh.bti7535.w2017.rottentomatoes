@@ -1,7 +1,10 @@
 import features.Feature;
 import features.NominalFeature;
 import features.NummericFeature;
-import weka.core.FastVector;
+import pipeline.Pipeline;
+import preprocessing.Preprocessing;
+import sentimentAnalysis.SentiAnalysis;
+import sentimentAnalysis.SentiWordNet;
 import weka.core.Instance;
 
 import java.util.ArrayList;
@@ -22,13 +25,40 @@ public class Features {
         // ********************
 
         // Classifier Feature (the review is "positive" or "negative")
-        features.add(new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")), (review) -> { return ""; }));
+        features.add(new NominalFeature(
+                classifierName,
+                new ArrayList<String>(Arrays.asList("positive", "negative")),
+                (review) -> { return ""; }));
 
-        // Review-Length-Feature (useless, just for testing purposes)
+
+        // Review-Length-Feature
         features.add(new NummericFeature("reviewLengthFeature",
                 (review) -> { return (double)review.length(); }
         ));
 
+        // Review-polarity
+        features.add(new NummericFeature(
+                "reviewPolarity",
+                (review) -> {
+                    Pipeline<String, Double> chain = Pipeline
+                        .start(Preprocessing.tokenizer)
+                        .append(Preprocessing.maxEntPosTagger)
+                        .append(SentiAnalysis.textPolarity);
+                    return chain.run(review);
+                }
+        ));
+
+        // Review-purity
+        features.add(new NummericFeature(
+                "reviewPurity",
+                (review) -> {
+                    Pipeline<String, Double> chain = Pipeline
+                            .start(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.textPurity);
+                    return chain.run(review);
+                }
+        ));
     }
 
     // returns the Attribute Objects of all features (needed for weka stuff)
@@ -51,7 +81,7 @@ public class Features {
             else
                 inst.setValue(feature.attr, (String)feature.determineValue(review));
 
-            System.out.println(inst.value(feature.attr));
+            // System.out.println(inst.value(feature.attr));
 
         }
     }

@@ -8,4 +8,5 @@ public class Preprocessing {
     public static StopwordFilter stopwordFilter = new StopwordFilter();
     public static Tokenizer tokenizer = new Tokenizer();
     public static Stemmer stemmer = new Stemmer();
+    public static MaxEntPosTagger maxEntPosTagger = new MaxEntPosTagger();
 }

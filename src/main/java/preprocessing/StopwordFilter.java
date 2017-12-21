@@ -1,7 +1,7 @@
 package preprocessing;
 
 import utils.FileReader;
-import utils.Pipe;
+import pipeline.Pipe;
 
 import java.util.*;
 

@@ -44,5 +44,16 @@
             <artifactId>lucene-snowball</artifactId>
             <version>2.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.opennlp</groupId>
+            <artifactId>opennlp-tools</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
