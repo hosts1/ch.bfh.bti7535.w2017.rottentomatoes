@@ -12,22 +12,26 @@ import java.util.List;
  * Created by hk on 21.12.2017.
  */
 public class Features {
-    public static final String classifierName = "THECLASSIFIER";
+    public static final String classifierName = "THECLASSIFIER";        // the name of the feature that is used for classification
+
     public List<Feature> features = new ArrayList<Feature>();
 
     public Features(){
-        Feature classifierFeature = new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")),
-                (review) -> { return ""; }
-                );
-        features.add(classifierFeature);
+        // ********************
+        // add features here
+        // ********************
 
-        Feature reviewLengthFeature = new NummericFeature("reviewLengthFeature",
+        // Classifier Feature (the review is "positive" or "negative")
+        features.add(new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")), (review) -> { return ""; }));
+
+        // Review-Length-Feature (useless, just for testing purposes)
+        features.add(new NummericFeature("reviewLengthFeature",
                 (review) -> { return (double)review.length(); }
-        );
-        features.add(reviewLengthFeature);
+        ));
 
     }
 
+    // returns the Attribute Objects of all features (needed for weka stuff)
     public ArrayList getAttributes(){
         ArrayList featureAttributes = new ArrayList(features.size());
         for(Feature feature: this.features){
@@ -36,6 +40,7 @@ public class Features {
         return featureAttributes;
     }
 
+    // Determines the value of all features from a review (except the classifier feature)
     public void determineFeatureValues(Instance inst, String review){
         for(Feature feature: this.features){
             if(feature.name == classifierName)      // skip the classifierFeature
@@ -51,10 +56,12 @@ public class Features {
         }
     }
 
+    // sets the classifier feature to some value (since it shouldn't be determines automatically for training data)
     public void setClass(Instance inst, String classValue){
         inst.setValue(this.features.get(0).attr, classValue);
     }
 
+    // return the number of features (required by some weka stuff)
     public int getNumberOfFeatuers(){
         return this.features.size();
     }
