@@ -1,5 +1,6 @@
 package preprocessing;
 
+import opennlp.tools.tokenize.WhitespaceTokenizer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -7,25 +8,22 @@ import pipeline.Pipe;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Tokenizer implements Pipe<String, List<String>> {
     @Override
     public List<String> process(String string){
         //StringTokenizer stok = new StringTokenizer(text, " ");
         //return stok;
+
         List<String> result = new ArrayList<String>();
-        try {
-            StandardAnalyzer analyzer = new StandardAnalyzer(org.apache.lucene.util.Version.LUCENE_CURRENT);
-            TokenStream stream  = analyzer.tokenStream(null, new StringReader(string));
-            stream.reset();
-            while (stream.incrementToken()) {
-                result.add(stream.getAttribute(CharTermAttribute.class).toString());
-            }
-        } catch (IOException e) {
-            // not thrown b/c we're using a string reader...
-            throw new RuntimeException(e);
-        }
+
+        WhitespaceTokenizer tokenizer = WhitespaceTokenizer.INSTANCE;
+        String tokens[] = tokenizer.tokenize(string);
+        result = Arrays.asList(tokens);
+
         return result;
     }
 }

@@ -10,7 +10,7 @@ import java.util.function.Function;
 public abstract class Feature<T> {
    public Attribute attr;
    public String name;
-   private Function<String, T> fxDetermine;        // this function will calculate the value of a feature
+   public Function<String, T> fxDetermine;        // this function will calculate the value of a feature
 
    public Feature(String name, Function<String, T> fx){
        this.name = name;
