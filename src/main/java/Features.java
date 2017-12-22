@@ -35,9 +35,9 @@ public class Features {
         features.add(new NummericFeature("reviewPolarity",
                 (review) -> {
                     Pipeline<String, Double> chain = Pipeline
-                        .start(Preprocessing.tokenizer)
-                        .append(Preprocessing.maxEntPosTagger)
-                        .append(SentiAnalysis.textPolarity);
+                            .start(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.textPolarity);
                     return chain.run(review);
                 }
         ));
@@ -54,19 +54,6 @@ public class Features {
         ));
 
 
-        // ? counter
-        features.add(new NummericFeature("questMarkCounter",
-                (review) -> {
-                    return (double)review.chars().filter(ch -> ch == '?').count();
-                }
-        ));
-
-        // ! counter
-        features.add(new NummericFeature("exclMarkCounter",
-                (review) -> {
-                    return (double)review.chars().filter(ch -> ch == '!').count();
-                }
-        ));
 
     }
 

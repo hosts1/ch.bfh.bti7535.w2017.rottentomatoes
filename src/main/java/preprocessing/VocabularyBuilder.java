@@ -22,10 +22,10 @@ public class VocabularyBuilder implements Pipe<List<String>, Void> {
     public Void process(List<String> input)
     {
         for(String token: input){
-            if(     Math.abs(SentiAnalysis.sentiWordNet.extract(token, "a")) > 0.1 ||
-                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "n")) > 0.1 ||
-                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "r")) > 0.1 ||
-                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "v")) > 0.1) {
+            if(     Math.abs(SentiAnalysis.sentiWordNet.extract(token, "a")) >= 0.25 ||
+                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "n")) >= 0.25 ||
+                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "r")) >= 0.25 ||
+                    Math.abs(SentiAnalysis.sentiWordNet.extract(token, "v")) >= 0.25) {
                 this._vocab.put(token, this._vocab.getOrDefault(token, 0) + 1);
             }
 

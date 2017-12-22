@@ -1,21 +1,13 @@
-import features.NummericFeature;
-import features.NummericWordFeature;
+import features.BagOfWordFeature;
 import pipeline.Pipeline;
 import preprocessing.Preprocessing;
-import preprocessing.VocabularyBuilder;
-import sentimentAnalysis.SentiAnalysis;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
-import weka.core.converters.TextDirectoryLoader;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.StringToWordVector;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class main {
@@ -24,23 +16,21 @@ public class main {
         ReviewData rvw = new ReviewData("txt_sentoken");
         Features features = new Features();
 
-        Pipeline<String, Void> testChain = Pipeline
+        // build a bag of words / vocabulary
+        Pipeline<String, Void> bagOfWordsChain = Pipeline
                 .start(Preprocessing.luceneTokenizer)
+                .append(Preprocessing.stopwordFilter)
+                .append(Preprocessing.wordFilter)
                 .append(Preprocessing.vocabularyBuilder);
 
-
         rvw.getReviews().parallelStream().forEach((review) -> {
-            testChain.run(review.getSecond());
+            bagOfWordsChain.run(review.getSecond());
         });
 
-        Preprocessing.vocabularyBuilder.sortAndLimit(2000);
+        // sort the vocabulary in descending order and reduce it to n words
+        Preprocessing.vocabularyBuilder.sortAndLimit(500);
 
-        System.out.println(Preprocessing.vocabularyBuilder._vocab.size());
         System.out.println(Preprocessing.vocabularyBuilder._vocab);
-        Pipeline<String, HashMap<String,Integer>> stringToWordVectorChain = Pipeline
-                .start(Preprocessing.luceneTokenizer)
-                .append(Preprocessing.toWordVector);
-
 
         // add a feature for every word
         Iterator it = Preprocessing.vocabularyBuilder._vocab.entrySet().iterator();
@@ -48,23 +38,27 @@ public class main {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
             String word = (String) pair.getKey();
-            features.addFeature(new NummericWordFeature(word));
+            features.addFeature(new BagOfWordFeature(word));
         }
 
+        // the following pipeline creates vectors (actually maps) for every document, containing the number of occurrences of the words within the vocabulary
+        Pipeline<String, HashMap<String,Integer>> stringToWordVectorChain = Pipeline
+                .start(Preprocessing.luceneTokenizer)
+                .append(Preprocessing.stopwordFilter)
+                .append(Preprocessing.wordFilter)
+                .append(Preprocessing.toWordVector);
 
-        // Create an empty training set
-        Instances trainingSet = new Instances("Rel", features.getAttributes(), 2000); // trainingSet with our features and a capacity of 1000 records
+        // Create training instances
+        Instances trainingSet = new Instances("Data", features.getAttributes(), 2000); // trainingSet with our features and a capacity of 1000 records
         trainingSet.setClassIndex(0); // the class attribute is the first one in the vector
 
         // process every review, extract feature values and add them to the training-set
         rvw.getReviews().parallelStream().forEach((review) -> {
-            HashMap<String,Integer> wordVector = stringToWordVectorChain.run(review.getSecond());
-
             Instance inst = new DenseInstance(features.getNumberOfFeatures());
 
-            // set the sentiment class to positive or negative
+            // set the sentiment class to positive or negative label
+            HashMap<String,Integer> wordVector = stringToWordVectorChain.run(review.getSecond());
             features.setClass(inst, review.getFirst());
-
             features.determineFeatureValues(inst, review.getSecond(), wordVector); // for each feature it will do "setValue" on the instance
 
             trainingSet.add(inst);
@@ -78,9 +72,7 @@ public class main {
 
             // Test the model
             Evaluation eTest = new Evaluation(trainingSet);
-            Random randomGenerator = new Random();
-
-            eTest.crossValidateModel(cModel, trainingSet, 10, randomGenerator);
+            eTest.crossValidateModel(cModel, trainingSet, 10, new Random(1));
 
             // print results
             String strSummary = eTest.toSummaryString();
