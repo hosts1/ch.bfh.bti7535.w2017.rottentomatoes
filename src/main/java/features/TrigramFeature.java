@@ -3,8 +3,8 @@ package features;
 
 import weka.core.Attribute;
 
-public class BigramFeature extends Feature<Double> {
-    public BigramFeature(String name){
+public class TrigramFeature extends Feature<Double> {
+    public TrigramFeature(String name){
         super(name, null);
         this.attr = new Attribute(name);
     }

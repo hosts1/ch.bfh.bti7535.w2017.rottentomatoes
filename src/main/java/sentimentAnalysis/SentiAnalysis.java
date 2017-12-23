@@ -10,5 +10,7 @@ public class SentiAnalysis {
 
     public static TextPolarity textPolarity = new TextPolarity();
     public static TextPurity textPurity = new TextPurity();
+    public static CountPositiveWords countPositiveWords = new CountPositiveWords();
+    public static CountNegativeWords countNegativeWords = new CountNegativeWords();
 
 }

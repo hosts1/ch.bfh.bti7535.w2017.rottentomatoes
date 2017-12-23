@@ -1,11 +1,10 @@
 import com.sun.deploy.util.StringUtils;
-import features.Feature;
-import features.NominalFeature;
-import features.NummericFeature;
+import features.*;
 import pipeline.Pipeline;
 import preprocessing.Preprocessing;
 import sentimentAnalysis.SentiAnalysis;
 import sentimentAnalysis.SentiWordNet;
+import weka.Run;
 import weka.core.Instance;
 
 import java.util.*;
@@ -14,7 +13,7 @@ import java.util.*;
  * Created by hk on 21.12.2017.
  */
 public class Features {
-    public static final String classifierName = "THECLASSIFIER";        // the name of the feature that is used for classification
+    public static final String classifierName = "#";        // the name of the feature that is used for classification
 
     public List<Feature> features = new ArrayList<Feature>();
 
@@ -54,11 +53,10 @@ public class Features {
         ));
 
 
-
     }
 
-    public void addFeature(Feature feature){
-        this.features.add(feature);
+    public Feature addFeature(Feature feature){
+        this.features.add(feature); return feature;
     }
 
     // returns the Attribute Objects of all features (needed for weka stuff)
@@ -71,7 +69,7 @@ public class Features {
     }
 
     // Determines the value of all features from a review (except the classifier feature)
-    public void determineFeatureValues(Instance inst, String review, HashMap<String,Integer> unigramVector){
+    public void determineFeatureValues(Instance inst, String review, HashMap<String,Integer> unigramVector, HashMap<String,Integer> bigramVector, HashMap<String,Integer> trigramVector ){
         for(Feature feature: this.features){
             if(feature.name == classifierName)      // skip the classifierFeature
                 continue;
@@ -80,8 +78,14 @@ public class Features {
                 inst.setValue(feature.attr, (Double)feature.determineValue(review));
             else if(feature instanceof NominalFeature)
                 inst.setValue(feature.attr, (String)feature.determineValue(review));
-            else{
+            else if(feature instanceof UnigramFeature){
                 inst.setValue(feature.attr, unigramVector.get(feature.name));
+            }else if(feature instanceof BigramFeature){
+                inst.setValue(feature.attr, bigramVector.get(feature.name));
+            }else if(feature instanceof TrigramFeature){
+                inst.setValue(feature.attr, trigramVector.get(feature.name));
+            }else{
+                throw new RuntimeException("Unknown Feature Class");
             }
 
         }

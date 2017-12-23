@@ -19,7 +19,6 @@ public class ToWordVector implements Pipe<List<String>, HashMap<String, Integer>
             Map.Entry pair = (Map.Entry) it.next();
             String word = (String) pair.getKey();
             int count = 0;
-            boolean skip = false;
             for (String w : input) {
                 if (w.equals(word)) {
                     count += 1;

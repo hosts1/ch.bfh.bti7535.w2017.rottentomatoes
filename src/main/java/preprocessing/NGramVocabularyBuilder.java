@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.stream.Collectors.toMap;
 
-public class BigramVocabularyBuilder implements Pipe<List<String>, Void> {
+public class NGramVocabularyBuilder implements Pipe<List<String>, Void> {
     public Map<String, Integer> _vocab = new ConcurrentHashMap<String,Integer>();
 
     @Override

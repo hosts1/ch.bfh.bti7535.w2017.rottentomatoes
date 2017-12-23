@@ -3,10 +3,8 @@ package features;
 
 import weka.core.Attribute;
 
-import java.util.function.Function;
-
-public class UnigramFeature extends Feature<Double> {
-    public UnigramFeature(String name){
+public class BigramFeature extends Feature<Double> {
+    public BigramFeature(String name){
         super(name, null);
         this.attr = new Attribute(name);
     }

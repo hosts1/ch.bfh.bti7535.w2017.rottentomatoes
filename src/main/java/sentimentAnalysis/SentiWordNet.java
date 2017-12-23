@@ -6,10 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -140,6 +137,19 @@ public class SentiWordNet{
         int index = 0;
         for(String s: words){
             pol.add(extract(s, posTags.get(index)));
+            index += 1;
+        }
+
+        // try to fix negations
+        index = 0;
+        List<String> negations = new ArrayList<>(Arrays.asList("not", "don't", "didn't", "n't", "no"));
+
+        for(String word: input.getFirst()){
+            for(String neg: negations){
+                if(word.equals(neg) && pol.size()-1 >= index+1){
+                    pol.set(index+1, -pol.get(index+1));
+                }
+            }
             index += 1;
         }
 

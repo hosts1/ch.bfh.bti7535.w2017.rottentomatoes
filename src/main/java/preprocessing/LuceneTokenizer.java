@@ -3,6 +3,7 @@ package preprocessing;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import org.apache.lucene.util.Version;
 import pipeline.Pipe;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class LuceneTokenizer implements Pipe<String, List<String>> {
         //return stok;
         List<String> result = new ArrayList<String>();
         try {
-            StandardAnalyzer analyzer = new StandardAnalyzer(org.apache.lucene.util.Version.LUCENE_CURRENT);
+            StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_36);
             TokenStream stream  = analyzer.tokenStream(null, new StringReader(string));
             stream.reset();
             while (stream.incrementToken()) {
