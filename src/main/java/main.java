@@ -31,7 +31,7 @@ public class main {
         });
 
         // sort the vocabulary in descending order and reduce it to n words
-        Preprocessing.vocabularyBuilder.sortAndLimit(1000);
+        Preprocessing.vocabularyBuilder.sortAndLimit(1500);
         System.out.println(Preprocessing.vocabularyBuilder._vocab);
 
         // add a feature for every word
@@ -65,7 +65,7 @@ public class main {
         });
 
         // sort the vocabulary in descending order and reduce it to n words
-        Preprocessing.bigramVocabularyBuilder.sortAndLimit(1000);
+        Preprocessing.bigramVocabularyBuilder.sortAndLimit(1500);
         System.out.println(Preprocessing.bigramVocabularyBuilder._vocab);
 
         // add a feature for every word
@@ -97,7 +97,7 @@ public class main {
         });
 
         // sort the vocabulary in descending order and reduce it to n words
-        Preprocessing.trigramVocabularyBuilder.sortAndLimit(1000);
+        Preprocessing.trigramVocabularyBuilder.sortAndLimit(1500);
         System.out.println(Preprocessing.trigramVocabularyBuilder._vocab);
 
         // add a feature for every word
@@ -118,7 +118,7 @@ public class main {
 
 
         // Create training instances
-        Feature sentiment = features.addFeature(new NominalFeature("sentiment", new ArrayList<String>(Arrays.asList("positive", "neutral", "negative")), (review) -> { return "neutral";}));
+        //Feature sentiment = features.addFeature(new NominalFeature("thesentiment", new ArrayList<String>(Arrays.asList("positive", "neutral", "negative")), (review) -> { return "neutral";}));
         Instances trainingSet = new Instances("Data", features.getAttributes(), 2000); // trainingSet with our features and a capacity of 1000 records
         trainingSet.setClassIndex(0); // the class attribute is the first one in the vector
 
@@ -132,7 +132,7 @@ public class main {
             HashMap<String,Integer> bigramVector = stringToBigramVectorChain.run(review.getSecond());
             HashMap<String,Integer> trigramVector = stringToTrigramVectorChain.run(review.getSecond());
             features.determineFeatureValues(inst, review.getSecond(), wordVector, bigramVector, trigramVector); // for each feature it will do "setValue" on the instance
-            inst.setValue(sentiment.attr, review.getFirst());
+            //inst.setValue(sentiment.attr, review.getFirst());
             trainingSet.add(inst);
         });
 
@@ -150,7 +150,7 @@ public class main {
             String strSummary = eTest.toSummaryString();
             System.out.println(strSummary);
 
-            //double[][] cmMatrix = eTest.confusionMatrix();
+            double[][] cmMatrix = eTest.confusionMatrix();
 
         } catch (Exception ex) {
             ex.printStackTrace();
