@@ -1,21 +1,20 @@
-package preprocessing;
+package preprocessing.BagOfWords;
 
+import features.BagOfWordFeature;
+import features.Features;
 import pipeline.Pipe;
+import preprocessing.Preprocessing;
 import sentimentAnalysis.SentiAnalysis;
-import sentimentAnalysis.SentiWordNet;
 
 import java.util.*;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.stream.Collectors.*;
-import static java.util.Map.Entry.*;
 
-public class VocabularyBuilder implements Pipe<List<String>, Void> {
+public class VocabularyBuilder implements Pipe<List<String>, Void>, IVocabularyBuilder {
     public Map<String, Integer> _vocab = new ConcurrentHashMap<String,Integer>();
 
     @Override
@@ -45,4 +44,25 @@ public class VocabularyBuilder implements Pipe<List<String>, Void> {
                                 LinkedHashMap::new));
     }
 
+
+    @Override
+    public Map<String, Integer> getVocabulary() {
+        return this._vocab;
+    }
+
+    @Override
+    public void setUp(Features features, int numberOfFeaturesToKeep) {
+        this.sortAndLimit(numberOfFeaturesToKeep);
+        System.out.println(this._vocab);
+
+        // add a feature for every word
+        Iterator it = this._vocab.entrySet().iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            String word = (String) pair.getKey();
+            features.addFeature(new BagOfWordFeature(word));
+        }
+
+    }
 }

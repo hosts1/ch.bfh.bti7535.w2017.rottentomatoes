@@ -1,10 +1,9 @@
-import com.sun.deploy.util.StringUtils;
+package features;
+
 import features.*;
 import pipeline.Pipeline;
 import preprocessing.Preprocessing;
 import sentimentAnalysis.SentiAnalysis;
-import sentimentAnalysis.SentiWordNet;
-import weka.Run;
 import weka.core.Instance;
 
 import java.util.*;
@@ -52,7 +51,6 @@ public class Features {
                 }
         ));
 
-
     }
 
     public Feature addFeature(Feature feature){
@@ -69,7 +67,7 @@ public class Features {
     }
 
     // Determines the value of all features from a review (except the classifier feature)
-    public void determineFeatureValues(Instance inst, String review, HashMap<String,Integer> unigramVector, HashMap<String,Integer> bigramVector, HashMap<String,Integer> trigramVector ){
+    public void determineFeatureValues(Instance inst, String review, HashMap<String,Integer> wordVector){
         for(Feature feature: this.features){
             if(feature.name == classifierName)      // skip the classifierFeature
                 continue;
@@ -78,13 +76,10 @@ public class Features {
                 inst.setValue(feature.attr, (Double)feature.determineValue(review));
             else if(feature instanceof NominalFeature)
                 inst.setValue(feature.attr, (String)feature.determineValue(review));
-            else if(feature instanceof UnigramFeature){
-                inst.setValue(feature.attr, unigramVector.get(feature.name));
-            }else if(feature instanceof BigramFeature){
-                inst.setValue(feature.attr, bigramVector.get(feature.name));
-            }else if(feature instanceof TrigramFeature){
-                inst.setValue(feature.attr, trigramVector.get(feature.name));
-            }else{
+            else if(feature instanceof BagOfWordFeature) {
+                inst.setValue(feature.attr, wordVector.get(feature.name));
+            }
+            else{
                 throw new RuntimeException("Unknown Feature Class");
             }
 

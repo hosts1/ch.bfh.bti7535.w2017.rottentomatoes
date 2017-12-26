@@ -28,7 +28,11 @@ public class Pipeline<S, T> {
         Object source = s;
         Object target = null;
         for (Pipe p : pipes) {
-            target = p.process(source);
+            try {
+                target = p.process(source);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             source = target;
         }
         return (T) target;

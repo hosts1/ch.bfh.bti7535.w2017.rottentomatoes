@@ -1,0 +1,103 @@
+@attribute 'is a fun' numeric
+@attribute 'of the worst' numeric
+@attribute stupid numeric
+@attribute bad numeric
+@attribute awful numeric
+@attribute 'to be funny' numeric
+@attribute poor numeric
+@attribute wasted numeric
+@attribute 'bad movie' numeric
+@attribute inept numeric
+@attribute 'as he' numeric
+@attribute 'works well' numeric
+@attribute excellent numeric
+@attribute 'is terrific' numeric
+@attribute wonderful numeric
+@attribute 'witty and' numeric
+@attribute poorly numeric
+@attribute perfectly numeric
+@attribute unfunny numeric
+@attribute 'should have' numeric
+@attribute wonderfully numeric
+@attribute pointless numeric
+@attribute outstanding numeric
+@attribute idiotic numeric
+@attribute 'as the' numeric
+@attribute many numeric
+@attribute boring numeric
+@attribute subtle numeric
+@attribute ridiculous numeric
+@attribute 'only saving' numeric
+@attribute masterpiece numeric
+@attribute portrayal numeric
+@attribute painfully numeric
+@attribute melancholy numeric
+@attribute tale numeric
+@attribute 'no reason' numeric
+@attribute 'is so bad' numeric
+@attribute others numeric
+@attribute 'the worst' numeric
+@attribute superb numeric
+@attribute garbage numeric
+@attribute worse numeric
+@attribute supposed numeric
+@attribute overall numeric
+@attribute worst numeric
+@attribute 'he is' numeric
+@attribute life numeric
+@attribute 'too bad' numeric
+@attribute 'funny or' numeric
+@attribute bland numeric
+@attribute 'is a' numeric
+@attribute fails numeric
+@attribute brilliant numeric
+@attribute family numeric
+@attribute 'as bad' numeric
+@attribute hilarious numeric
+@attribute memorable numeric
+@attribute 'is excellent' numeric
+@attribute 'this mess' numeric
+@attribute is numeric
+@attribute 'waste of' numeric
+@attribute terrific numeric
+@attribute 'only thing' numeric
+@attribute 'is terrible' numeric
+@attribute 'to the' numeric
+@attribute era numeric
+@attribute degenerates numeric
+@attribute 'at least' numeric
+@attribute 'really matter' numeric
+@attribute stupidity numeric
+@attribute great numeric
+@attribute insulting numeric
+@attribute 'this turkey' numeric
+@attribute perfect numeric
+@attribute own numeric
+@attribute anger numeric
+@attribute finest numeric
+@attribute his numeric
+@attribute quite numeric
+@attribute 'is perfect' numeric
+@attribute terrible numeric
+@attribute waste numeric
+@attribute avoids numeric
+@attribute 'space station' numeric
+@attribute both numeric
+@attribute most numeric
+@attribute 'a great' numeric
+@attribute true numeric
+@attribute 'truly a' numeric
+@attribute 'falls flat' numeric
+@attribute 'attempts at' numeric
+@attribute why numeric
+@attribute mess numeric
+@attribute effective numeric
+@attribute 'clich s' numeric
+@attribute and numeric
+@attribute allows numeric
+@attribute 'love and' numeric
+@attribute 'the best' numeric
+@attribute also numeric
+@attribute minute numeric
+@attribute dull numeric
+@attribute lame numeric

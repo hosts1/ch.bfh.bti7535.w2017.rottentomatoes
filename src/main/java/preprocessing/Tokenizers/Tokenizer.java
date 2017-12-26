@@ -1,4 +1,4 @@
-package preprocessing;
+package preprocessing.Tokenizers;
 
 import opennlp.tools.tokenize.WhitespaceTokenizer;
 import org.apache.lucene.analysis.TokenStream;

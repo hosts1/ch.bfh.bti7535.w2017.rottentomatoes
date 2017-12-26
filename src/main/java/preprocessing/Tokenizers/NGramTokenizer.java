@@ -1,4 +1,4 @@
-package preprocessing;
+package preprocessing.Tokenizers;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.shingle.ShingleFilter;
@@ -17,10 +17,13 @@ import java.util.List;
  * Created by hk on 23.12.2017.
  */
 public class NGramTokenizer implements Pipe<String,List<String>> {
-    int n = 0;
 
-    public NGramTokenizer(int n){
+    int n = 0;
+    boolean returnAllUpToN = false;
+
+    public NGramTokenizer(int n, boolean returnAllUpToN){
         this.n = n;
+        this.returnAllUpToN = returnAllUpToN;
     }
 
     @Override
@@ -34,7 +37,7 @@ public class NGramTokenizer implements Pipe<String,List<String>> {
         try {
             while (tokenizer.incrementToken()) {
                 String token = charTermAttribute.toString();
-                if(token.split(" ").length == this.n)
+                if(token.split(" ").length == this.n || this.returnAllUpToN)
                     res.add(token);
             }
         } catch (IOException e) {

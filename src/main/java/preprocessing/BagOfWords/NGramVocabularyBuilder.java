@@ -1,17 +1,16 @@
-package preprocessing;
+package preprocessing.BagOfWords;
 
+import features.BagOfWordFeature;
+import features.Features;
 import pipeline.Pipe;
 import sentimentAnalysis.SentiAnalysis;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.stream.Collectors.toMap;
 
-public class NGramVocabularyBuilder implements Pipe<List<String>, Void> {
+public class NGramVocabularyBuilder implements Pipe<List<String>, Void>, IVocabularyBuilder {
     public Map<String, Integer> _vocab = new ConcurrentHashMap<String,Integer>();
 
     @Override
@@ -42,6 +41,26 @@ public class NGramVocabularyBuilder implements Pipe<List<String>, Void> {
                 .collect(
                         toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                                 LinkedHashMap::new));
+    }
+
+    @Override
+    public Map<String, Integer> getVocabulary() {
+        return this._vocab;
+    }
+
+    @Override
+    public void setUp(Features features, int numberOfFeaturesToKeep) {
+        this.sortAndLimit(numberOfFeaturesToKeep);
+        System.out.println(this._vocab);
+
+        // add a feature for every word
+        Iterator it = this._vocab.entrySet().iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            String word = (String) pair.getKey();
+            features.addFeature(new BagOfWordFeature(word));
+        }
     }
 
 }

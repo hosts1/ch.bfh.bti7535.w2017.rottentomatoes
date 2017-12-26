@@ -1,0 +1,243 @@
+@attribute '0 on' numeric
+@attribute 'a bad' numeric
+@attribute 'a bit' numeric
+@attribute 'a boring' numeric
+@attribute 'a great' numeric
+@attribute 'a poorly' numeric
+@attribute 'a ridiculous' numeric
+@attribute 'a stupid' numeric
+@attribute 'a waste' numeric
+@attribute 'absolutely no' numeric
+@attribute 'action scene' numeric
+@attribute 'although it' numeric
+@attribute 'although the' numeric
+@attribute 'amounts to' numeric
+@attribute 'an excellent' numeric
+@attribute 'and boring' numeric
+@attribute 'and the' numeric
+@attribute 'are also' numeric
+@attribute 'are very' numeric
+@attribute 'are wasted' numeric
+@attribute 'as bad' numeric
+@attribute 'as he' numeric
+@attribute 'as the' numeric
+@attribute 'at best' numeric
+@attribute 'at least' numeric
+@attribute 'attempts at' numeric
+@attribute 'attempts at humor' numeric
+@attribute 'bad dialogue' numeric
+@attribute 'bad movie' numeric
+@attribute 'bad the' numeric
+@attribute 'be fun' numeric
+@attribute 'bland and' numeric
+@attribute 'boring and' numeric
+@attribute 'bunch of' numeric
+@attribute 'but unfortunately' numeric
+@attribute 'clich s' numeric
+@attribute 'different from' numeric
+@attribute 'does a' numeric
+@attribute 'doesn t help' numeric
+@attribute 'doing in' numeric
+@attribute 'dull and' numeric
+@attribute 'eve s' numeric
+@attribute 'even care' numeric
+@attribute 'even worse' numeric
+@attribute 'fails in' numeric
+@attribute 'falls flat' numeric
+@attribute 'film could have been' numeric
+@attribute 'for the plot' numeric
+@attribute 'funny or' numeric
+@attribute 'good actors' numeric
+@attribute 'got to' numeric
+@attribute 'have been a' numeric
+@attribute 'he is' numeric
+@attribute 'ice cube' numeric
+@attribute 'in the world' numeric
+@attribute 'in this one' numeric
+@attribute 'insult to' numeric
+@attribute 'is a' numeric
+@attribute 'is able' numeric
+@attribute 'is an' numeric
+@attribute 'is so bad' numeric
+@attribute 'is terrible' numeric
+@attribute 'is the best' numeric
+@attribute 'is there any' numeric
+@attribute 'is very' numeric
+@attribute 'it is' numeric
+@attribute 'it is a' numeric
+@attribute 'it s just too' numeric
+@attribute 'lame and' numeric
+@attribute 'love and' numeric
+@attribute 'makes no' numeric
+@attribute 'many of' numeric
+@attribute 'maybe that' numeric
+@attribute 'movie i' numeric
+@attribute 'no reason' numeric
+@attribute 'no suspense' numeric
+@attribute 'not enough to' numeric
+@attribute 'not funny' numeric
+@attribute 'nothing much' numeric
+@attribute 'nothing new' numeric
+@attribute 'o k' numeric
+@attribute 'of the best' numeric
+@attribute 'of the worst' numeric
+@attribute 'only good thing' numeric
+@attribute 'only saving' numeric
+@attribute 'only thing' numeric
+@attribute 'police academy' numeric
+@attribute 'portrayal of' numeric
+@attribute 'pulp fiction' numeric
+@attribute 'quite frankly' numeric
+@attribute 'randy quaid' numeric
+@attribute 'really matter' numeric
+@attribute 'reason that' numeric
+@attribute 'rent the' numeric
+@attribute 's as if' numeric
+@attribute 's life' numeric
+@attribute 'should have' numeric
+@attribute 'show off' numeric
+@attribute 'shows us' numeric
+@attribute 'sit through' numeric
+@attribute 'sloppy and' numeric
+@attribute 'so bad' numeric
+@attribute 'so poorly' numeric
+@attribute 'so what' numeric
+@attribute 'some of the' numeric
+@attribute 'space station' numeric
+@attribute 'steven seagal' numeric
+@attribute 'such as it' numeric
+@attribute 'supposed to' numeric
+@attribute 't care for' numeric
+@attribute 't enough to' numeric
+@attribute 't even' numeric
+@attribute 't work' numeric
+@attribute 'than this' numeric
+@attribute 'that made me' numeric
+@attribute 'the bad' numeric
+@attribute 'the best' numeric
+@attribute 'the dark' numeric
+@attribute 'the family' numeric
+@attribute 'the filmmakers' numeric
+@attribute 'the idea' numeric
+@attribute 'the life' numeric
+@attribute 'the main problem' numeric
+@attribute 'the most' numeric
+@attribute 'the previous' numeric
+@attribute 'the target audience' numeric
+@attribute 'the true' numeric
+@attribute 'the worst' numeric
+@attribute 'the worst movie' numeric
+@attribute 'then there s' numeric
+@attribute 'there s no' numeric
+@attribute 'they would have' numeric
+@attribute 'this mess' numeric
+@attribute 'this turkey' numeric
+@attribute 'this year' numeric
+@attribute 'to be funny' numeric
+@attribute 'to care about' numeric
+@attribute 'to give us' numeric
+@attribute 'to go and' numeric
+@attribute 'to the' numeric
+@attribute 'to work with' numeric
+@attribute 'too bad' numeric
+@attribute 'tries to be' numeric
+@attribute 'tries to make' numeric
+@attribute 'trouble when' numeric
+@attribute 'two men' numeric
+@attribute 'unfortunately the' numeric
+@attribute 'video game' numeric
+@attribute 'was getting' numeric
+@attribute 'was made' numeric
+@attribute 'waste of' numeric
+@attribute 'why did' numeric
+@attribute 'worst movie' numeric
+@attribute 'you want to see' numeric
+@attribute 'young man' numeric
+@attribute 'a joy' numeric
+@attribute 'a political' numeric
+@attribute 'a symbol' numeric
+@attribute 'a terrific' numeric
+@attribute 'a wonderfully' numeric
+@attribute 'also quite' numeric
+@attribute 'american history' numeric
+@attribute 'an era' numeric
+@attribute 'an intelligent' numeric
+@attribute 'an outstanding' numeric
+@attribute 'and believable' numeric
+@attribute 'and cinematographer' numeric
+@attribute 'and clever' numeric
+@attribute 'and great' numeric
+@attribute 'army and' numeric
+@attribute 'become one of' numeric
+@attribute 'best supporting' numeric
+@attribute 'blend of' numeric
+@attribute 'brings a' numeric
+@attribute 'but with a' numeric
+@attribute 'characters with' numeric
+@attribute 'does so' numeric
+@attribute 'ed harris' numeric
+@attribute 'emotional and' numeric
+@attribute 'everything from' numeric
+@attribute 'fairy tale' numeric
+@attribute 'freedom and' numeric
+@attribute 'hanks is' numeric
+@attribute 'home he' numeric
+@attribute 'in modern' numeric
+@attribute 'in some ways' numeric
+@attribute 'intense and' numeric
+@attribute 'is a fun' numeric
+@attribute 'is crisp' numeric
+@attribute 'is excellent' numeric
+@attribute 'is great' numeric
+@attribute 'is perfect' numeric
+@attribute 'is perfect as' numeric
+@attribute 'is superb' numeric
+@attribute 'is terrific' numeric
+@attribute 'is what makes' numeric
+@attribute 'it s a good' numeric
+@attribute 'jackie is' numeric
+@attribute 'john lithgow' numeric
+@attribute 'john turturro' numeric
+@attribute 'lead the' numeric
+@attribute 'life is beautiful' numeric
+@attribute 'makes for' numeric
+@attribute 'more than just' numeric
+@attribute 'most powerful' numeric
+@attribute 'never seems' numeric
+@attribute 'nothing short' numeric
+@attribute 'of the better' numeric
+@attribute 'of the finest' numeric
+@attribute 'often hilarious' numeric
+@attribute 'perfect for' numeric
+@attribute 'perfectly the' numeric
+@attribute 'perhaps the most' numeric
+@attribute 'portrayed by' numeric
+@attribute 'reality of' numeric
+@attribute 'refreshing to' numeric
+@attribute 's finest' numeric
+@attribute 'sharp and' numeric
+@attribute 'son s' numeric
+@attribute 'story 2' numeric
+@attribute 'study of' numeric
+@attribute 'that once' numeric
+@attribute 'the history of' numeric
+@attribute 'the mpaa' numeric
+@attribute 'the musical' numeric
+@attribute 'the political' numeric
+@attribute 'the right time' numeric
+@attribute 'the strongest' numeric
+@attribute 'the supreme' numeric
+@attribute 'time at the movies' numeric
+@attribute 'title character' numeric
+@attribute 'to fall in' numeric
+@attribute 'tobey maguire' numeric
+@attribute 'tribute to' numeric
+@attribute 'truly a' numeric
+@attribute 'very effective' numeric
+@attribute 'way a' numeric
+@attribute 'we realize' numeric
+@attribute 'well worth' numeric
+@attribute 'will is' numeric
+@attribute 'with her husband' numeric
+@attribute 'witty and' numeric
+@attribute 'works well' numeric
