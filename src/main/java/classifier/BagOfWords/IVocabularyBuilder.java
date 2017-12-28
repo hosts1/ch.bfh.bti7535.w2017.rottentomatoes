@@ -1,6 +1,7 @@
-package preprocessing.BagOfWords;
+package classifier.BagOfWords;
 
 import features.Features;
+import preprocessing.Tokenizers.NGramTokenizer;
 
 import java.util.Map;
 
@@ -11,4 +12,6 @@ public interface IVocabularyBuilder {
     public Map<String, Integer> getVocabulary();
 
     public void setUp(Features features, int numberOfFeaturesToKeep);
+    public NGramTokenizer getTokenizer();
+    public void setTokenizer(NGramTokenizer tokenizer);
 }

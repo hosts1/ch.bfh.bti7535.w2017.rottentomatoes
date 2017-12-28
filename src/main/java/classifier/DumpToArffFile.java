@@ -16,7 +16,7 @@ public class DumpToArffFile implements Pipe<ClassifierArguments, ClassifierArgum
         ArffSaver saver = new ArffSaver();
         saver.setInstances(input.instances);
         try {
-            saver.setFile(new File("data/imdb_optimized_attributes.arff"));
+            saver.setFile(new File("data/imdb_top_200k.arff"));
             saver.writeBatch();
 
         } catch (IOException e) {

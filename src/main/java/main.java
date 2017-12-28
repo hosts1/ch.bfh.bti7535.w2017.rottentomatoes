@@ -2,6 +2,7 @@ import classifier.*;
 import features.Features;
 import pipeline.Pipeline;
 import utils.ReviewData;
+import static classifier.BagOfWordModel.*;
 
 public class main {
 
@@ -11,19 +12,9 @@ public class main {
         input.reviews = new ReviewData("txt_sentoken");
         input.features = new Features();
 
-
-        // pipeline steps
-        UseBagOfWords useBagOfWords = new UseBagOfWords();
-        BuildBagOfWords buildBagOfWordsModel = new BuildBagOfWords();
-        ProcessDocuments processDocuments = new ProcessDocuments();
-        OptimizeAttributes optimizeAttributes = new OptimizeAttributes();
-        DumpToArffFile dumpToArffFile = new DumpToArffFile();
-        ClassifyNaiveBayes classifyNaiveBayes = new ClassifyNaiveBayes();
-        FoldCrossEvaluation foldCrossEvaluation = new FoldCrossEvaluation();
-
-
         Pipeline<ClassifierArguments, ClassifierArguments> naiveBayesChain = Pipeline
-                .start(buildBagOfWordsModel)
+                //.start(useExistingBagOfWordsModel)
+                .start(generateNewBagOfWordsModel)
                 .append(processDocuments)
                 .append(optimizeAttributes)
                 .append(dumpToArffFile)

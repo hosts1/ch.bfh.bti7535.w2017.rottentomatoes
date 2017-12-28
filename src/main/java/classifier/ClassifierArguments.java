@@ -1,7 +1,7 @@
 package classifier;
 
 import features.Features;
-import preprocessing.BagOfWords.IVocabularyBuilder;
+import classifier.BagOfWords.IVocabularyBuilder;
 import utils.ReviewData;
 import weka.classifiers.Classifier;
 import weka.core.Instances;

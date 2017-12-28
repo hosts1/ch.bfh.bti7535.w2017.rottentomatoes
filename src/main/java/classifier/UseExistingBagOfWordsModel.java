@@ -11,15 +11,15 @@ import weka.core.Instances;
 /**
  * Created by hk on 26.12.2017.
  */
-public class UseBagOfWords implements Pipe<ClassifierArguments, ClassifierArguments>{
+public class UseExistingBagOfWordsModel implements Pipe<ClassifierArguments, ClassifierArguments>{
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
         Pipeline<Void, Void> bagOfWordsChain = Pipeline
-                .start(Preprocessing.fileBasedVocabularyBuilder);
+                .start(BagOfWordModel.fileBasedVocabularyBuilder);
         bagOfWordsChain.run(null);
-        Preprocessing.fileBasedVocabularyBuilder.setUp(input.features, 3000);
-        input.vocabulary = Preprocessing.fileBasedVocabularyBuilder;
+        BagOfWordModel.fileBasedVocabularyBuilder.setUp(input.features, 3000);
+        input.vocabulary = BagOfWordModel.fileBasedVocabularyBuilder;
         return input;
     }
 }

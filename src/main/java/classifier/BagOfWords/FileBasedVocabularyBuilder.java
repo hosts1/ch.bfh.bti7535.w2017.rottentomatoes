@@ -1,9 +1,9 @@
-package preprocessing.BagOfWords;
+package classifier.BagOfWords;
 
 import features.BagOfWordFeature;
 import features.Features;
 import pipeline.Pipe;
-import sentimentAnalysis.SentiAnalysis;
+import preprocessing.Tokenizers.NGramTokenizer;
 import utils.FileReader;
 
 import java.util.*;
@@ -12,7 +12,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import static java.util.stream.Collectors.toMap;
 
 public class FileBasedVocabularyBuilder implements Pipe<Void, Void>, IVocabularyBuilder {
+    private NGramTokenizer tokenizer;
     public Map<String, Integer> _vocab = new ConcurrentHashMap<String,Integer>();
+
+    public FileBasedVocabularyBuilder(NGramTokenizer tokenizer){
+        this.setTokenizer(tokenizer);
+    }
 
     @Override
     public Void process(Void input)
@@ -55,5 +60,15 @@ public class FileBasedVocabularyBuilder implements Pipe<Void, Void>, IVocabulary
             features.addFeature(new BagOfWordFeature(word));
         }
 
+    }
+
+    @Override
+    public NGramTokenizer getTokenizer() {
+        return this.tokenizer;
+    }
+
+    @Override
+    public void setTokenizer(NGramTokenizer tokenizer) {
+        this.tokenizer = tokenizer;
     }
 }
