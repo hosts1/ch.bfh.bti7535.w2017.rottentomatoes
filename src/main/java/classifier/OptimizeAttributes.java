@@ -17,9 +17,10 @@ public class OptimizeAttributes implements Pipe<ClassifierArguments, ClassifierA
         System.out.println("Optimizing attribute selection...");
         weka.filters.supervised.attribute.AttributeSelection attributeSelection = new weka.filters.supervised.attribute.AttributeSelection();
         CfsSubsetEval cfsSubsetEval = new CfsSubsetEval();
-        BestFirst bestFirstSearch = new BestFirst();
-        cfsSubsetEval.setNumThreads(16);
         cfsSubsetEval.setPoolSize(16);
+        cfsSubsetEval.setNumThreads(16);
+
+        BestFirst bestFirstSearch = new BestFirst();
         bestFirstSearch.setDirection(new SelectedTag("forward", BestFirst.TAGS_SELECTION));
         bestFirstSearch.setLookupCacheSize(4);
         bestFirstSearch.setSearchTermination(5);
@@ -27,6 +28,7 @@ public class OptimizeAttributes implements Pipe<ClassifierArguments, ClassifierA
         attributeSelection.setEvaluator(cfsSubsetEval);
         attributeSelection.setSearch(bestFirstSearch);
         attributeSelection.setInputFormat(input.instances);
+
         Instances resultSet = Filter.useFilter(input.instances, attributeSelection);
         input.instances = resultSet;
         return input;

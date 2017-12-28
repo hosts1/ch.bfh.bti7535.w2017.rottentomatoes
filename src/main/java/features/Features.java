@@ -24,33 +24,6 @@ public class Features {
         // Classifier Feature (the review is "positive" or "negative")
         features.add(new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")), (review) -> { return ""; }));
 
-        // Review-Length-Feature
-        features.add(new NummericFeature("reviewLengthFeature",
-                (review) -> { return (double)review.length(); }
-        ));
-
-        // Review-polarity
-        features.add(new NummericFeature("reviewPolarity",
-                (review) -> {
-                    Pipeline<String, Double> chain = Pipeline
-                            .start(Preprocessing.tokenizer)
-                            .append(Preprocessing.maxEntPosTagger)
-                            .append(SentiAnalysis.textPolarity);
-                    return chain.run(review);
-                }
-        ));
-
-        // Review-purity
-        features.add(new NummericFeature("reviewPurity",
-                (review) -> {
-                    Pipeline<String, Double> chain = Pipeline
-                            .start(Preprocessing.tokenizer)
-                            .append(Preprocessing.maxEntPosTagger)
-                            .append(SentiAnalysis.textPurity);
-                    return chain.run(review);
-                }
-        ));
-
     }
 
     public Feature addFeature(Feature feature){
