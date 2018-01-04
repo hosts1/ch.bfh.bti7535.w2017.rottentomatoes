@@ -9,15 +9,17 @@ public class GenerateNewBagOfWords implements Pipe<ClassifierArguments, Classifi
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
+        BagOfWordModel.nGramVocabularyBuilder.reset();
 
-        input.reviews.getReviews().parallelStream().forEach((review) -> {
+        input.reviews.getTrainingReviews(input.k).parallelStream().forEach((review) -> {
             BagOfWordModel.nGramVocabularyBuilder.process(review);
         });
 
         // sort the vocabulary in descending order and reduce it to n words
-        BagOfWordModel.nGramVocabularyBuilder.setUp(input.features, 50000);
-
+        BagOfWordModel.nGramVocabularyBuilder.setUp(input.features, 2000);
         input.vocabulary = BagOfWordModel.nGramVocabularyBuilder;
+
+        System.out.println("Size of nGram vocabulary: " + input.vocabulary.getVocabulary().size());
         return input;
     }
 }

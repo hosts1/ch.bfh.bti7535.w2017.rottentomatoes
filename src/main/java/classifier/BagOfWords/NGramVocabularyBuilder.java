@@ -7,6 +7,7 @@ import pipeline.Pipeline;
 import preprocessing.Preprocessing;
 import preprocessing.Tokenizers.NGramTokenizer;
 import sentimentAnalysis.SentiAnalysis;
+import utils.FileReader;
 import utils.Pair;
 
 import java.util.*;
@@ -28,10 +29,12 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
     public Map<String, Integer> _tmpNegative = new ConcurrentHashMap<String,Integer>();
 
     // filtering the polarity does for some reason decrease accuracy
-    private boolean ignorePolarity = true;
+    private boolean ignorePolarity = false;
 
     public NGramVocabularyBuilder(NGramTokenizer tokenizer){
+
         this.setTokenizer(tokenizer);
+
     }
 
     public Void process(Pair<String,String> input)
@@ -88,14 +91,34 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
     }
 
     @Override
+    public void reset() {
+        this. _vocab = new ConcurrentHashMap<String,Integer>();
+        this._tmpPositive = new ConcurrentHashMap<String,Integer>();
+        this._tmpNegative = new ConcurrentHashMap<String,Integer>();
+
+        try {
+            FileReader fr = new FileReader();
+            String vocabularyStr = fr.readFile("vocab.txt");
+            StringTokenizer stok = new StringTokenizer(vocabularyStr, "\n");
+            while (stok.hasMoreTokens()) {
+                String token = stok.nextToken();  // get and save in variable so it can be used more than once
+                token = token.replaceAll("@attribute \'", "");
+                token = token.replaceAll("\' numeric", "");
+                token = token.replaceAll("@attribute ", "");
+                token = token.replaceAll(" numeric", "");
+                this._vocab.put(token, 999999);      // weight doesn't matter here
+            }
+        }catch(Exception ex){
+        }
+    }
+
+    @Override
     public void setUp(Features features, int numberOfFeaturesToKeep) {
-        this._tmpNegative = sortAndLimit(this._tmpNegative, numberOfFeaturesToKeep/2);
-        this._tmpPositive = sortAndLimit(this._tmpPositive, numberOfFeaturesToKeep/2);
+        this._tmpNegative = sortAndLimit(this._tmpNegative, numberOfFeaturesToKeep);
+        this._tmpPositive = sortAndLimit(this._tmpPositive, numberOfFeaturesToKeep);
         this._vocab.putAll(this._tmpPositive);
         this._vocab.putAll(this._tmpNegative);
         this._vocab = sortAndLimit(this._vocab, numberOfFeaturesToKeep);
-        System.out.println("NGramVocabulary:");
-        System.out.println(this._vocab);
 
         // add a feature for every word
         Iterator it = this._vocab.entrySet().iterator();
@@ -105,6 +128,9 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
             String word = (String) pair.getKey();
             features.addFeature(new BagOfWordFeature(word));
         }
+
+        System.out.println("NGramVocabulary:");
+        System.out.println(this._vocab);
     }
 
     @Override

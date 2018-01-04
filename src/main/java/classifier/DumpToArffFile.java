@@ -11,19 +11,21 @@ import java.io.IOException;
  */
 public class DumpToArffFile implements Pipe<ClassifierArguments, ClassifierArguments> {
 
+    static int c = 0;
+
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
         ArffSaver saver = new ArffSaver();
-        saver.setInstances(input.instances);
+        saver.setInstances(input.testInstances);
         try {
-            saver.setFile(new File("data/imdb_top_200k.arff"));
+            saver.setFile(new File("data/attributeDump_"+ input.k+".arff"));
             saver.writeBatch();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        this.c += 1;
         return input;
-
     }
 }

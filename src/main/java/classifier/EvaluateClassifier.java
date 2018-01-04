@@ -8,21 +8,17 @@ import java.util.Random;
 /**
  * Created by hk on 26.12.2017.
  */
-public class FoldCrossEvaluation implements Pipe<ClassifierArguments, ClassifierArguments> {
+public class EvaluateClassifier implements Pipe<ClassifierArguments, ClassifierArguments> {
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
         // Test the model
         try {
-            System.out.println("Run evaluation...");
-            Evaluation eTest = new Evaluation(input.instances);
-            eTest.crossValidateModel(input.classifier, input.instances, 10, new Random(1));
+            Evaluation eTest = new Evaluation( input.testInstances);
+            eTest.evaluateModel(input.classifier,  input.testInstances);
 
-            // print results
             String strSummary = eTest.toSummaryString();
             System.out.println(strSummary);
-
-            double[][] cmMatrix = eTest.confusionMatrix();
         } catch (Exception e) {
             e.printStackTrace();
         }

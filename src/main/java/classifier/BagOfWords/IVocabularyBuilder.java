@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface IVocabularyBuilder {
     public Map<String, Integer> getVocabulary();
-
+    public void reset();
     public void setUp(Features features, int numberOfFeaturesToKeep);
     public NGramTokenizer getTokenizer();
     public void setTokenizer(NGramTokenizer tokenizer);

@@ -3,6 +3,8 @@ package classifier;
 import pipeline.Pipe;
 import weka.attributeSelection.BestFirst;
 import weka.attributeSelection.CfsSubsetEval;
+import weka.attributeSelection.InfoGainAttributeEval;
+import weka.attributeSelection.Ranker;
 import weka.core.Instances;
 import weka.core.SelectedTag;
 import weka.filters.Filter;
@@ -14,23 +16,37 @@ public class OptimizeAttributes implements Pipe<ClassifierArguments, ClassifierA
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) throws Exception {
+        System.out.println("Number of features: " + input.features.getNumberOfFeatures());
+
         System.out.println("Optimizing attribute selection...");
         weka.filters.supervised.attribute.AttributeSelection attributeSelection = new weka.filters.supervised.attribute.AttributeSelection();
-        CfsSubsetEval cfsSubsetEval = new CfsSubsetEval();
-        cfsSubsetEval.setPoolSize(16);
-        cfsSubsetEval.setNumThreads(16);
 
         BestFirst bestFirstSearch = new BestFirst();
         bestFirstSearch.setDirection(new SelectedTag("forward", BestFirst.TAGS_SELECTION));
-        bestFirstSearch.setLookupCacheSize(4);
         bestFirstSearch.setSearchTermination(5);
-
-        attributeSelection.setEvaluator(cfsSubsetEval);
+        bestFirstSearch.setLookupCacheSize(4);
         attributeSelection.setSearch(bestFirstSearch);
-        attributeSelection.setInputFormat(input.instances);
 
-        Instances resultSet = Filter.useFilter(input.instances, attributeSelection);
-        input.instances = resultSet;
+        CfsSubsetEval evaluator = new CfsSubsetEval();
+        evaluator.setPoolSize(16);
+        evaluator.setNumThreads(16);
+        attributeSelection.setEvaluator(evaluator);
+
+        attributeSelection.setInputFormat(input.trainInstances);
+
+        Instances resultSet = Filter.useFilter(input.testInstances, attributeSelection);
+        input.testInstances = resultSet;
+
+        Instances resultSet2 = Filter.useFilter(input.trainInstances, attributeSelection);
+        input.trainInstances = resultSet2;
+
+        input.testInstances.setClassIndex(input.testInstances.numAttributes()-1); // the class attribute is the first one in the vector
+        input.trainInstances.setClassIndex(input.trainInstances.numAttributes()-1); // the class attribute is the first one in the vector
+
+        System.out.println("Number of attributes after optimization: " + input.trainInstances.numAttributes());
+
         return input;
+
+
     }
 }

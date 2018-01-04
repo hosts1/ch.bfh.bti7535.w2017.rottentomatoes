@@ -17,13 +17,41 @@ public class Features {
     public List<Feature> features = new ArrayList<Feature>();
 
     public Features(){
+        // Classifier Feature (the review is "positive" or "negative")
+        features.add(new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")), (review) -> { return ""; }));
+
         // ********************
         // add features here
         // ********************
 
-        // Classifier Feature (the review is "positive" or "negative")
-        features.add(new NominalFeature(classifierName, new ArrayList<String>(Arrays.asList("positive", "negative")), (review) -> { return ""; }));
+        // Review-Length-Feature
+        this.addFeature(new NummericFeature("reviewLengthFeature",
+                (review) -> {
+                    return (double) review.length();
+                }
+        ));
 
+        // Review-polarity
+        this.addFeature(new NummericFeature("reviewPolarity",
+                (review) -> {
+                    Pipeline<String, Double> chain = Pipeline
+                            .start(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.textPolarity);
+                    return chain.run(review);
+                }
+        ));
+
+        // Review-purity
+        this.addFeature(new NummericFeature("reviewPurity",
+                (review) -> {
+                    Pipeline<String, Double> chain = Pipeline
+                            .start(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.textPurity);
+                    return chain.run(review);
+                }
+        ));
     }
 
     public Feature addFeature(Feature feature){
