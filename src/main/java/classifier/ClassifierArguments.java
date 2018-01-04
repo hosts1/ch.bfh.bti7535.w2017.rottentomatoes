@@ -16,6 +16,7 @@ import weka.core.Instances;
  */
 public class ClassifierArguments {
     public int k = 1;
+    public int vectorSize = 0;
     public Instances testInstances;
     public Instances trainInstances;
     public ReviewData reviews;
@@ -23,8 +24,9 @@ public class ClassifierArguments {
     public Classifier classifier;
     public IVocabularyBuilder vocabulary;
 
-    public ClassifierArguments(int k, ReviewData reviews, Features features){
+    public ClassifierArguments(int k, int vectorSize, ReviewData reviews, Features features){
         this.k = k;
+        this.vectorSize = vectorSize;
         this.reviews = reviews;
         this.features = features;
     }

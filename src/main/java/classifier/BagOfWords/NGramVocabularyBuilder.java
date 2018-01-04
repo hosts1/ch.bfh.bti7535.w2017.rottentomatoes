@@ -1,14 +1,14 @@
 package classifier.BagOfWords;
 
+import classifier.BagOfWordModel;
 import features.BagOfWordFeature;
 import features.Features;
-import pipeline.Pipe;
-import pipeline.Pipeline;
+import pipeline.PipelineFactory;
 import preprocessing.Preprocessing;
 import preprocessing.Tokenizers.NGramTokenizer;
 import sentimentAnalysis.SentiAnalysis;
 import utils.FileReader;
-import utils.Pair;
+import utils.Review;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -37,17 +37,17 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
 
     }
 
-    public Void process(Pair<String,String> input)
+    public Void process(Review rvw)
     {
-        String str = input.getSecond();
-        String sentClass = input.getFirst();
-
-        Pipeline<String, List<String>> tokenizedStringChain = Pipeline
+        PipelineFactory<String, List<String>> tokenizedStringChain = PipelineFactory
                 .start(this.tokenizer)
                 .append(Preprocessing.stopwordFilter)
                 .append(Preprocessing.wordFilter);
 
-        List<String> tokens = tokenizedStringChain.run(str);
+        List<String> tokens = BagOfWordModel.queryTokenizedStringCache(rvw.getText());
+        if(tokens == null) {
+            tokens = tokenizedStringChain.run(rvw.getText());
+        }
 
         for(String token: tokens){
             String[] words = token.split(" ");
@@ -64,7 +64,7 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
                 }
             }
             if(isPol) {
-                if(sentClass == "positive")
+                if(rvw.getSentimentClass() == "positive")
                     this._tmpPositive.put(token, this._tmpPositive.getOrDefault(token, 0) + 1);
                 else
                     this._tmpNegative.put(token, this._tmpNegative.getOrDefault(token, 0) + 1);

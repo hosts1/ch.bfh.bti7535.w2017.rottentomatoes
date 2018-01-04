@@ -1,7 +1,7 @@
 package classifier.BagOfWords;
 
-import pipeline.Pipe;
-import pipeline.Pipeline;
+import classifier.BagOfWordModel;
+import pipeline.PipelineFactory;
 import preprocessing.Preprocessing;
 import preprocessing.Tokenizers.NGramTokenizer;
 
@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toMap;
     ToWordVector: Converts a document into a vector, noting which ngrams/words of the vocabulary are present within the document
     - returnCount defines whether the vector should contain the number of occurrences or simply 0-or-1- count seems to slightly improve accuracy
  */
-public class ToWordVector implements Pipe<String, HashMap<String, Integer>> {
+public class ToWordVector{
     private NGramTokenizer tokenizer;
     public Map<String, Integer> vocabulary;
     private boolean returnCount;
@@ -26,15 +26,19 @@ public class ToWordVector implements Pipe<String, HashMap<String, Integer>> {
         this.returnCount = returnCount;
     }
 
-    @Override
-    public HashMap<String, Integer> process(String input) {
+    public HashMap<String, Integer> vectorize(String input) {
 
-        Pipeline<String, List<String>> tokenizedStringChain = Pipeline
-                .start(this.tokenizer)
-                .append(Preprocessing.stopwordFilter)
-                .append(Preprocessing.wordFilter);
+        // check cache for already tokenized string
+        List<String> tokens = BagOfWordModel.queryTokenizedStringCache(input);
+        if(tokens == null) {
+            // otherwise tokenize!
+            PipelineFactory<String, List<String>> tokenizedStringChain = PipelineFactory
+                    .start(this.tokenizer)
+                    .append(Preprocessing.stopwordFilter)
+                    .append(Preprocessing.wordFilter);
 
-        List<String> tokens = tokenizedStringChain.run(input);
+            tokens = tokenizedStringChain.run(input);
+        }
 
         HashMap<String, Integer> vec = new HashMap();
 

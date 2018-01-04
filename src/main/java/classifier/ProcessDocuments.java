@@ -1,9 +1,7 @@
 package classifier;
 
 import pipeline.Pipe;
-import pipeline.Pipeline;
 import classifier.BagOfWords.ToWordVector;
-import preprocessing.Preprocessing;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -22,13 +20,13 @@ public class ProcessDocuments implements Pipe<ClassifierArguments, ClassifierArg
         input.testInstances.setClassIndex(0); // the class attribute is the first one in the vector
         ToWordVector toWordVector = new ToWordVector(input.vocabulary, true);
         System.out.println("Vectorizing test set: " + input.reviews.getTestSize() + " reviews");
-        // process every review, extract feature values and add them to the training-set
+        // vectorize every review, extract feature values and add them to the training-set
         input.reviews.getTestReviews(input.k).parallelStream().forEach((review) -> {
             Instance inst = new DenseInstance(input.features.getNumberOfFeatures());
-            input.features.setClass(inst,review.getFirst());                   // set the sentiment class to positive or negative label
+            input.features.setClass(inst,review.getSentimentClass());                   // set the sentiment class to positive or negative label
 
-            HashMap<String,Integer> wordVector = toWordVector.process(review.getSecond());  // vectorize the document (count vocabulary NGram occurrences)
-            input.features.determineFeatureValues(inst, review.getSecond(), wordVector); // for each feature it will do "setValue" on the instance
+            HashMap<String,Integer> wordVector = toWordVector.vectorize(review.getText());  // vectorize the document (count vocabulary NGram occurrences)
+            input.features.determineFeatureValues(inst, review.getText(), wordVector); // for each feature it will do "setValue" on the instance
             synchronized(this){
                 input.testInstances.add(inst);
             }

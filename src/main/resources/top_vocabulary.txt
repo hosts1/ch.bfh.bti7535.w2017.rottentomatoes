@@ -1,67 +1,38 @@
-@attribute 'is a' numeric
-@attribute 'to the' numeric
 @attribute bad numeric
 @attribute most numeric
-@attribute also numeric
-@attribute 'as the' numeric
-@attribute why numeric
-@attribute life numeric
 @attribute many numeric
 @attribute great numeric
-@attribute world numeric
-@attribute both numeric
-@attribute own numeric
-@attribute 'he is' numeric
 @attribute worst numeric
-@attribute quite numeric
-@attribute supposed numeric
 @attribute boring numeric
-@attribute family numeric
 @attribute 'the best' numeric
 @attribute stupid numeric
 @attribute 'the worst' numeric
 @attribute worse numeric
 @attribute especially numeric
 @attribute poor numeric
-@attribute different numeric
 @attribute 'should have' numeric
-@attribute minute numeric
-@attribute true numeric
 @attribute mess numeric
 @attribute waste numeric
 @attribute fails numeric
 @attribute ridiculous numeric
 @attribute memorable numeric
-@attribute 'none of' numeric
 @attribute terrible numeric
 @attribute awful numeric
 @attribute dull numeric
-@attribute 'is also' numeric
-@attribute cameron numeric
 @attribute wasted numeric
-@attribute 'as he' numeric
 @attribute lame numeric
 @attribute terrific numeric
-@attribute others numeric
 @attribute perfect numeric
 @attribute poorly numeric
-@attribute julie numeric
-@attribute 'sense of' numeric
 @attribute pointless numeric
 @attribute wonderfully numeric
 @attribute unfunny numeric
-@attribute allows numeric
 @attribute masterpiece numeric
 @attribute outstanding numeric
-@attribute 'have been a' numeric
-@attribute tale numeric
 @attribute bland numeric
 @attribute 'waste of' numeric
 @attribute 'bad movie' numeric
-@attribute damon numeric
-@attribute seagal numeric
 @attribute 'the only thing' numeric
-@attribute portrayed numeric
 @attribute 'too bad' numeric
 @attribute laughable numeric
 @attribute 'portrayal of' numeric
@@ -72,14 +43,11 @@
 @attribute effective numeric
 @attribute painfully numeric
 @attribute brilliant numeric
-@attribute 'attempts at' numeric
 @attribute religion numeric
 @attribute inept numeric
 @attribute complex numeric
 @attribute 'as bad' numeric
-@attribute 'no reason' numeric
 @attribute idiotic numeric
-@attribute 0 numeric
 @attribute refreshing numeric
 @attribute excellent numeric
 @attribute 'so why' numeric

@@ -1,7 +1,6 @@
 package features;
 
-import features.*;
-import pipeline.Pipeline;
+import pipeline.PipelineFactory;
 import preprocessing.Preprocessing;
 import sentimentAnalysis.SentiAnalysis;
 import weka.core.Instance;
@@ -34,7 +33,7 @@ public class Features {
         // Review-polarity
         this.addFeature(new NummericFeature("reviewPolarity",
                 (review) -> {
-                    Pipeline<String, Double> chain = Pipeline
+                    PipelineFactory<String, Double> chain = PipelineFactory
                             .start(Preprocessing.tokenizer)
                             .append(Preprocessing.maxEntPosTagger)
                             .append(SentiAnalysis.textPolarity);
@@ -45,7 +44,7 @@ public class Features {
         // Review-purity
         this.addFeature(new NummericFeature("reviewPurity",
                 (review) -> {
-                    Pipeline<String, Double> chain = Pipeline
+                    PipelineFactory<String, Double> chain = PipelineFactory
                             .start(Preprocessing.tokenizer)
                             .append(Preprocessing.maxEntPosTagger)
                             .append(SentiAnalysis.textPurity);

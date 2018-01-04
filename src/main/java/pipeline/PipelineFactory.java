@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Pipeline<S, T> {
+// Used to build reusable pre-processing chains.
+// Note: Currently, only one argument is allowed --> use class containers like ClassifierArguments
+
+public class PipelineFactory<S, T> {
     private List<Pipe<?, ?>> pipes;
 
-    private Pipeline() {
+    private PipelineFactory() {
     }
 
-    public static <K, L> Pipeline<K, L> start(Pipe<K, L> pipe) {
-        Pipeline<K, L> chain = new Pipeline<K, L>();
+    public static <K, L> PipelineFactory<K, L> start(Pipe<K, L> pipe) {
+        PipelineFactory<K, L> chain = new PipelineFactory<K, L>();
         chain.pipes = Collections.<Pipe<?, ?>>singletonList(pipe);;
         return chain;
     }
 
-    public <V> Pipeline<S, V> append(Pipe<T, V> pipe) {
-        Pipeline<S, V> chain = new Pipeline<S, V>();
+    public <V> PipelineFactory<S, V> append(Pipe<T, V> pipe) {
+        PipelineFactory<S, V> chain = new PipelineFactory<S, V>();
         chain.pipes = new ArrayList<Pipe<?, ?>>(pipes);
         chain.pipes.add(pipe);
         return chain;
