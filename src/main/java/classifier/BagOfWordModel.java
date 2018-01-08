@@ -23,7 +23,6 @@ public class BagOfWordModel {
     public static DumpToArffFile dumpToArffFile = new DumpToArffFile();
     public static ClassifyNaiveBayes classifyNaiveBayes = new ClassifyNaiveBayes();
     public static EvaluateClassifier evaluateClassifier = new EvaluateClassifier();
-    // public static WekaToWordVector wekaToWordVector = new WekaToWordVector(); // wekas StringToWordVector, not used
 
 
     public static List<String> queryTokenizedStringCache(String str){
