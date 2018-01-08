@@ -2,38 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="551766be-7493-4a12-b1c6-f66104eb61bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/preprocessing/NegationFilter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_1.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_10.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_2.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_3.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_4.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_5.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_6.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_7.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_8.arff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/attributeDump_9.arff" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/classifier/BagOfWords/IVocabularyBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/IVocabularyBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/classifier/BagOfWords/NGramVocabularyBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/NGramVocabularyBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/classifier/BagOfWords/ToWordVector.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/ToWordVector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/presentation.pptx" afterPath="$PROJECT_DIR$/docs/presentation.pptx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/BagOfWordModel.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/BagOfWordModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/ClassifierArguments.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/ClassifierArguments.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/OptimizeAttributes.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/OptimizeAttributes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/classifier/TrainModel.java" afterPath="$PROJECT_DIR$/src/main/java/classifier/TrainModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/features/Feature.java" afterPath="$PROJECT_DIR$/src/main/java/features/Feature.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/features/Features.java" afterPath="$PROJECT_DIR$/src/main/java/features/Features.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/main.java" afterPath="$PROJECT_DIR$/src/main/java/main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/preprocessing/Preprocessing.java" afterPath="$PROJECT_DIR$/src/main/java/preprocessing/Preprocessing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/CountNegativeWords.java" afterPath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/CountNegativeWords.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/CountPositiveWords.java" afterPath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/CountPositiveWords.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/SentiWordNet.java" afterPath="$PROJECT_DIR$/src/main/java/sentimentAnalysis/SentiWordNet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/utils/ReviewData.java" afterPath="$PROJECT_DIR$/src/main/java/utils/ReviewData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/ignorewords.txt" afterPath="$PROJECT_DIR$/src/main/resources/ignorewords.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/vocab.txt" afterPath="$PROJECT_DIR$/src/main/resources/vocab.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,8 +25,8 @@
       <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="306">
+              <caret line="30" column="50" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1515258068000" expanded="true" signature="2081:2088" ph="{...}" />
@@ -65,8 +38,8 @@
       <file leaf-file-name="TrainModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classifier/TrainModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="204">
+              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,21 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OptimizeAttributes.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OptimizeAttributes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classifier/OptimizeAttributes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="255">
               <caret line="19" column="101" lean-forward="false" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassifierArguments.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ClassifierArguments.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -125,8 +88,8 @@
       <file leaf-file-name="ProcessDocuments.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+            <state relative-caret-position="323">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,8 +98,28 @@
       <file leaf-file-name="GenerateNewBagOfWords.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvaluateClassifier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassifyNaiveBayes.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -223,15 +206,11 @@
         <option value="$PROJECT_DIR$/src/main/java/classifier/Evaluation.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/WekaToWordVector.java" />
         <option value="$PROJECT_DIR$/data/imdb_train.arff" />
-        <option value="$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/BagOfWords/IVocabularyBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/DumpToArffFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/Review.java" />
-        <option value="$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java" />
         <option value="$PROJECT_DIR$/src/main/resources/vocab2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/ClassifierArguments.java" />
-        <option value="$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java" />
-        <option value="$PROJECT_DIR$/src/main/java/classifier/TrainModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/BagOfWordModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/pipeline/Pipeline.java" />
         <option value="$PROJECT_DIR$/src/main/java/pipeline/PipelineFactory.java" />
@@ -241,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/java/classifier/ToWordVector.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/ReviewData.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ignorewords.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java" />
         <option value="$PROJECT_DIR$/src/main/resources/vocab.txt" />
         <option value="$PROJECT_DIR$/src/main/java/preprocessing/NegationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/features/Feature.java" />
@@ -253,6 +231,11 @@
         <option value="$PROJECT_DIR$/src/main/java/sentimentAnalysis/SentiWordNet.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/NGramVocabularyBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/classifier/OptimizeAttributes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classifier/TrainModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java" />
       </list>
     </option>
   </component>
@@ -276,8 +259,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="46" />
+    <option name="x" value="75" />
+    <option name="y" value="54" />
     <option name="width" value="1492" />
     <option name="height" value="917" />
   </component>
@@ -883,15 +866,16 @@
       <workItem from="1515006395142" duration="698000" />
       <workItem from="1515160186812" duration="9387000" />
       <workItem from="1515234898087" duration="16986000" />
-      <workItem from="1515394973020" duration="4854000" />
+      <workItem from="1515394973020" duration="5843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273213000" />
+    <option name="totallyTimeSpent" value="274202000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="46" width="1492" height="917" extended-state="0" />
+    <frame x="75" y="54" width="1492" height="917" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -902,11 +886,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40768278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37298638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22899729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23644987" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -976,7 +960,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java</url>
-          <line>18</line>
+          <line>20</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
@@ -1082,22 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1297,45 +1265,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/attributeDump_1.arff">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
           <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1515258068000" expanded="true" signature="2081:2088" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/TrainModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1372,10 +1305,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="30" column="50" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1515258068000" expanded="true" signature="2081:2088" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/TrainModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ProcessDocuments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/classifier/OptimizeAttributes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="255">
           <caret line="19" column="101" lean-forward="false" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/GenerateNewBagOfWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/EvaluateClassifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classifier/ClassifyNaiveBayes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>

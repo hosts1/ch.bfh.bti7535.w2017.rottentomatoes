@@ -14,12 +14,14 @@ public class ProcessDocuments implements Pipe<ClassifierArguments, ClassifierArg
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
-        // Create training instances
+        // Create test instances, vectorize the reviews into a wordVector, calculate all feature values
+
         input.testInstances = new Instances("Data", input.features.getAttributes(), input.reviews.getTestSize()); // trainingSet with our features and a capacity of 1000 records
         input.testInstances.setClassIndex(0); // the class attribute is the first one in the vector
         ToWordVector toWordVector = new ToWordVector(input.vocabulary, true);
         System.out.println("Vectorizing test set: " + input.reviews.getTestSize() + " reviews");
-        // vectorize every review, extract feature values and add them to the training-set
+
+        // vectorize every test review, extract feature values and add them to the test-set
         input.reviews.getTestReviews(input.k).parallelStream().forEach((review) -> {
             Instance inst = new DenseInstance(input.features.getNumberOfFeatures());
             input.features.setClass(inst,review.getSentimentClass());                   // set the sentiment class to positive or negative label
@@ -29,7 +31,6 @@ public class ProcessDocuments implements Pipe<ClassifierArguments, ClassifierArg
             synchronized(this){
                 input.testInstances.add(inst);
             }
-            // System.out.println(input.instances.size());
         });
 
 

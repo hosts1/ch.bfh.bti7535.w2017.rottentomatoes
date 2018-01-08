@@ -11,6 +11,8 @@ import weka.classifiers.meta.FilteredClassifier;
 public class ClassifyNaiveBayes implements Pipe<ClassifierArguments, ClassifierArguments> {
     @Override
     public ClassifierArguments process(ClassifierArguments input){
+        // build (train) the classifier using the training reviews
+        
         Classifier cModel = new NaiveBayes();
         input.classifier = cModel;
         try {

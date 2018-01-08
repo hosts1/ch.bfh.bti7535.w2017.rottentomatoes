@@ -12,7 +12,7 @@ public class EvaluateClassifier implements Pipe<ClassifierArguments, Double> {
 
     @Override
     public Double process(ClassifierArguments input) {
-        // Test the model
+        // Evaluate the model using the test-reviews
         double percentage = 0;
         try {
             Evaluation eTest = new Evaluation( input.testInstances);
@@ -20,7 +20,8 @@ public class EvaluateClassifier implements Pipe<ClassifierArguments, Double> {
 
             String strSummary = eTest.toSummaryString();
             percentage = eTest.pctCorrect();
-            System.out.println("Correctly classified instances: " + percentage);
+            System.out.println("**************************************************************");
+            System.out.println("Correctly classified instances: " + percentage + "%");
             //System.out.println(strSummary);
         } catch (Exception e) {
             e.printStackTrace();

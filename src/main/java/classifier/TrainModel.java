@@ -14,14 +14,14 @@ public class TrainModel implements Pipe<ClassifierArguments, ClassifierArguments
 
     @Override
     public ClassifierArguments process(ClassifierArguments input) {
-        // Create training instances
+
+        // Create training instances, vectorize the reviews into a wordVector, calculate all feature values
+
         System.out.println("Vectorizing training set: " + input.reviews.getTrainingSize() + " reviews");
 
         input.trainInstances = new Instances("Data", input.features.getAttributes(), input.reviews.getTrainingSize()); // trainingSet with our features and a capacity of 1000 records
         input.trainInstances.setClassIndex(0); // the class attribute is the first one in the vector
         ToWordVector toWordVector = new ToWordVector(input.vocabulary, true);
-
-
 
         // vectorize every review, extract feature values and add them to the training-set
         input.reviews.getTrainingReviews(input.k)
