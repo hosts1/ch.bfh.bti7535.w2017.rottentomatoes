@@ -17,7 +17,7 @@ public class OptimizeAttributes implements Pipe<ClassifierArguments, ClassifierA
         weka.filters.supervised.attribute.AttributeSelection attributeSelection = new weka.filters.supervised.attribute.AttributeSelection();
         CorrelationAttributeEval eval = new CorrelationAttributeEval();
         Ranker ranker = new Ranker();
-        ranker.setNumToSelect(250);
+        ranker.setNumToSelect(Math.round(input.features.getNumberOfFeatures()/10)); // select top 10%
 
         attributeSelection.setEvaluator(eval);
         attributeSelection.setSearch(ranker);

@@ -1,4 +1,4 @@
-package classifier.BagOfWords;
+package classifier;
 
 import features.Features;
 import preprocessing.Tokenizers.NGramTokenizer;

@@ -33,26 +33,52 @@ public class Features {
         // Review-polarity
         this.addFeature(new NummericFeature("reviewPolarity",
                 (review) -> {
-                    PipelineFactory<String, Double> chain = PipelineFactory
-                            .start(Preprocessing.tokenizer)
+                    return PipelineFactory
+                            .start(Preprocessing.negationFilter)
+                            .append(Preprocessing.tokenizer)
                             .append(Preprocessing.maxEntPosTagger)
-                            .append(SentiAnalysis.textPolarity);
-                    return chain.run(review);
+                            .append(SentiAnalysis.textPolarity)
+                            .run(review);
                 }
         ));
 
         // Review-purity
         this.addFeature(new NummericFeature("reviewPurity",
                 (review) -> {
-                    PipelineFactory<String, Double> chain = PipelineFactory
-                            .start(Preprocessing.tokenizer)
+                    return PipelineFactory
+                            .start(Preprocessing.negationFilter)
+                            .append(Preprocessing.tokenizer)
                             .append(Preprocessing.maxEntPosTagger)
-                            .append(SentiAnalysis.textPurity);
-                    return chain.run(review);
+                            .append(SentiAnalysis.textPurity)
+                            .run(review);
                 }
         ));
-    }
 
+        // count positive words
+        this.addFeature(new NummericFeature("countPositiveWords",
+                (review) -> {
+                    return PipelineFactory
+                            .start(Preprocessing.negationFilter)
+                            .append(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.countPositiveWords)
+                            .run(review);
+                }
+        ));
+
+        // count negative words
+        this.addFeature(new NummericFeature("countNegativeWords",
+                (review) -> {
+                    return PipelineFactory
+                            .start(Preprocessing.negationFilter)
+                            .append(Preprocessing.tokenizer)
+                            .append(Preprocessing.maxEntPosTagger)
+                            .append(SentiAnalysis.countNegativeWords)
+                            .run(review);
+                }
+        ));
+
+    }
     public Feature addFeature(Feature feature){
         this.features.add(feature); return feature;
     }

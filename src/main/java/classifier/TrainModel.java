@@ -1,6 +1,5 @@
 package classifier;
 
-import classifier.BagOfWords.ToWordVector;
 import pipeline.Pipe;
 import weka.core.DenseInstance;
 import weka.core.Instance;

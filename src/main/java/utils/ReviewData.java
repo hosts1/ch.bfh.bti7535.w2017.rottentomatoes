@@ -27,7 +27,7 @@ public class ReviewData {
         this.folds = folds;
         this.foldSize = (this.negativeReviews.size()/folds);
 
-        this.shuffle();
+        //this.shuffle();
     }
 
     private List<Review> getRawData(String path) {

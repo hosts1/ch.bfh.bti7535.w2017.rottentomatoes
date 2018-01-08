@@ -1,8 +1,6 @@
 package classifier;
 
-import classifier.BagOfWords.NGramVocabularyBuilder;
 import preprocessing.Tokenizers.NGramTokenizer;
-import utils.Pair;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;

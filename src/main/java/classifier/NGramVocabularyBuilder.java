@@ -1,6 +1,5 @@
-package classifier.BagOfWords;
+package classifier;
 
-import classifier.BagOfWordModel;
 import features.BagOfWordFeature;
 import features.Features;
 import pipeline.PipelineFactory;
@@ -40,7 +39,8 @@ public class NGramVocabularyBuilder implements IVocabularyBuilder {
     public Void process(Review rvw)
     {
         PipelineFactory<String, List<String>> tokenizedStringChain = PipelineFactory
-                .start(this.tokenizer)
+                .start(Preprocessing.negationFilter)
+                .append(this.tokenizer)
                 .append(Preprocessing.stopwordFilter)
                 .append(Preprocessing.wordFilter);
 

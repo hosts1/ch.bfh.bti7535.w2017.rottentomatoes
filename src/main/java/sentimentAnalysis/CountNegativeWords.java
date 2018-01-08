@@ -18,8 +18,8 @@ public class CountNegativeWords implements Pipe<Pair<List<String>,List<String>>,
 
         Double count = 0.0;
         for(Double p: pol){
-            if(p < 0.1){
-                count += p;
+            if(p <= -0.25){
+                count += 1;
             }
         }
 

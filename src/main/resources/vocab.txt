@@ -1,0 +1,63 @@
+@attribute bad numeric
+@attribute most numeric
+@attribute many numeric
+@attribute great numeric
+@attribute worst numeric
+@attribute boring numeric
+@attribute 'the best' numeric
+@attribute stupid numeric
+@attribute 'the worst' numeric
+@attribute worse numeric
+@attribute especially numeric
+@attribute poor numeric
+@attribute 'should have' numeric
+@attribute mess numeric
+@attribute waste numeric
+@attribute fails numeric
+@attribute ridiculous numeric
+@attribute memorable numeric
+@attribute terrible numeric
+@attribute awful numeric
+@attribute dull numeric
+@attribute wasted numeric
+@attribute lame numeric
+@attribute terrific numeric
+@attribute perfect numeric
+@attribute poorly numeric
+@attribute pointless numeric
+@attribute wonderfully numeric
+@attribute unfunny numeric
+@attribute masterpiece numeric
+@attribute outstanding numeric
+@attribute bland numeric
+@attribute 'waste of' numeric
+@attribute 'bad movie' numeric
+@attribute 'the only thing' numeric
+@attribute 'too bad' numeric
+@attribute laughable numeric
+@attribute 'portrayal of' numeric
+@attribute 'of the worst' numeric
+@attribute hilarious numeric
+@attribute nomination numeric
+@attribute wonderful numeric
+@attribute effective numeric
+@attribute painfully numeric
+@attribute brilliant numeric
+@attribute religion numeric
+@attribute inept numeric
+@attribute complex numeric
+@attribute 'as bad' numeric
+@attribute idiotic numeric
+@attribute refreshing numeric
+@attribute excellent numeric
+@attribute 'so why' numeric
+@attribute breathtaking numeric
+@attribute anger numeric
+@attribute 'is perfect' numeric
+@attribute garbage numeric
+@attribute perfectly numeric
+@attribute stupidity numeric
+@attribute 'of the best' numeric
+@attribute flawless numeric
+@attribute subtle numeric
+@attribute realistic numeric

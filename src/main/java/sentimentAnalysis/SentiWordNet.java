@@ -141,6 +141,7 @@ public class SentiWordNet{
         }
 
         // try to fix negations
+        /*
         index = 0;
         List<String> negations = new ArrayList<>(Arrays.asList("not", "don't", "didn't", "n't", "no"));
 
@@ -152,6 +153,7 @@ public class SentiWordNet{
             }
             index += 1;
         }
+        */
 
         this.cache.put(input.hashCode(), pol);
         return pol;

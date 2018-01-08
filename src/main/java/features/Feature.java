@@ -20,7 +20,6 @@ public abstract class Feature<T> {
     public void addToFeatureVector(ArrayList vec){
         vec.add(this);
     }
-
     public T determineValue(String review){
         return fxDetermine.apply(review);
     }

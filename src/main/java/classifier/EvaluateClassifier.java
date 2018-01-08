@@ -8,21 +8,24 @@ import java.util.Random;
 /**
  * Created by hk on 26.12.2017.
  */
-public class EvaluateClassifier implements Pipe<ClassifierArguments, ClassifierArguments> {
+public class EvaluateClassifier implements Pipe<ClassifierArguments, Double> {
 
     @Override
-    public ClassifierArguments process(ClassifierArguments input) {
+    public Double process(ClassifierArguments input) {
         // Test the model
+        double percentage = 0;
         try {
             Evaluation eTest = new Evaluation( input.testInstances);
             eTest.evaluateModel(input.classifier,  input.testInstances);
 
             String strSummary = eTest.toSummaryString();
-            System.out.println(strSummary);
+            percentage = eTest.pctCorrect();
+            System.out.println("Correctly classified instances: " + percentage);
+            //System.out.println(strSummary);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return input;
+        return percentage;
     }
 }

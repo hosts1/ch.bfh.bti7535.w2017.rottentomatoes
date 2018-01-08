@@ -1,6 +1,5 @@
-package classifier.BagOfWords;
+package classifier;
 
-import classifier.BagOfWordModel;
 import pipeline.PipelineFactory;
 import preprocessing.Preprocessing;
 import preprocessing.Tokenizers.NGramTokenizer;
@@ -33,7 +32,8 @@ public class ToWordVector{
         if(tokens == null) {
             // otherwise tokenize!
             PipelineFactory<String, List<String>> tokenizedStringChain = PipelineFactory
-                    .start(this.tokenizer)
+                    .start(Preprocessing.negationFilter)
+                    .append(this.tokenizer)
                     .append(Preprocessing.stopwordFilter)
                     .append(Preprocessing.wordFilter);
 
@@ -43,11 +43,13 @@ public class ToWordVector{
         HashMap<String, Integer> vec = new HashMap();
 
         Iterator it = this.vocabulary.keySet().iterator();
+
+        Map<String, Long> tokensCount = tokens.stream().collect(
+                Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
         int i = 0;
         while (it.hasNext()) {
             String word = (String) it.next();
-            Map<String, Long> tokensCount = tokens.stream().collect(
-                    Collectors.groupingBy(Function.identity(), Collectors.counting()));
             int count = tokensCount.getOrDefault(word, 0L).intValue();
 
             //vec.add(count);

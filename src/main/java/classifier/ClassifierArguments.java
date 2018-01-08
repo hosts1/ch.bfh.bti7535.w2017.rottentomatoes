@@ -1,10 +1,8 @@
 package classifier;
 
 import features.Features;
-import classifier.BagOfWords.IVocabularyBuilder;
 import utils.ReviewData;
 import weka.classifiers.Classifier;
-import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Instances;
 
 /**
