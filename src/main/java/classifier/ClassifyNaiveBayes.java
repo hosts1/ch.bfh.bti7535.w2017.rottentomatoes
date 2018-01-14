@@ -12,7 +12,7 @@ public class ClassifyNaiveBayes implements Pipe<ClassifierArguments, ClassifierA
     @Override
     public ClassifierArguments process(ClassifierArguments input){
         // build (train) the classifier using the training reviews
-        
+
         Classifier cModel = new NaiveBayes();
         input.classifier = cModel;
         try {
