@@ -18,10 +18,11 @@ public class GenerateNewBagOfWords implements Pipe<ClassifierArguments, Classifi
 
         // sort the vocabulary in descending order and reduce it to n words
         BagOfWordModel.nGramVocabularyBuilder.setUp(input.features, input.vectorSize);
-        System.out.println("Size of nGram vocabulary: " + input.vocabulary.getVocabulary().size());
 
         // add it to the ClassifierArguments object so it can be used by the next pipeline steps
         input.vocabulary = BagOfWordModel.nGramVocabularyBuilder;
+
+        System.out.println("Size of nGram vocabulary: " + input.vocabulary.getVocabulary().size());
         return input;
     }
 }
